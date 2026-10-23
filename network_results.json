@@ -1,0 +1,1013 @@
+{
+  "design": {
+    "families": [
+      "cycle",
+      "square_torus",
+      "heterogeneous_ring"
+    ],
+    "sizes": [
+      64,
+      256,
+      1024
+    ],
+    "theta": [
+      0.5,
+      0.75
+    ],
+    "normalization": "All Q divided by the raw maximum exit rate: q_max=1.",
+    "heterogeneous_ring": {
+      "index": "i=0,...,n-1; x_i=2*pi*i/n",
+      "edge_conductance": "c_i=exp(sin(x_i)+0.5*cos(3*x_i)); edge {i,i+1 mod n}",
+      "vertex_mass": "m_i=exp(0.8*cos(x_i)+0.3*sin(5*x_i))",
+      "generator": "Q_ij=c_ij/m_i off diagonal, Q_ii=-sum_{j!=i} Q_ij; pi_i=m_i/sum m"
+    },
+    "spectral_upper_bound": "Lambda=2*q_max, never the computed largest eigenvalue",
+    "exact_reference": "Fourier eigenvalues for cycle and square_torus; full symmetric eigendecomposition for heterogeneous_ring; bracketed scalar root of min_i R_ii(theta*h)-(1-theta).",
+    "validation": "Independent sparse LU solves of I+theta*h*A at h=(1 +/- 1e-6)*h_star and at H2; every diagonal checked. Certificate and reference ordering checked.",
+    "root_relative_tolerance": 2e-14,
+    "root_absolute_tolerance": 5e-14,
+    "near_threshold_relative_offset": 1e-06
+  },
+  "environment": {
+    "python": "3.9.6 (default, May  7 2023, 23:32:44) \n[Clang 14.0.3 (clang-1403.0.22.14.1)]",
+    "numpy": "1.26.4",
+    "scipy": "1.13.1",
+    "platform": "macOS-26.3-arm64-arm-64bit",
+    "thread_environment": {
+      "OPENBLAS_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "results": [
+    {
+      "family": "cycle",
+      "n": 64,
+      "theta": 0.5,
+      "H0": 2.0,
+      "H1": 2.032258064516129,
+      "H2": 2.581652979817048,
+      "h_star": 3.0000000000000004,
+      "H1_over_H0": 1.0161290322580645,
+      "H2_over_H0": 1.290826489908524,
+      "H2_over_H1": 1.2703371805448966,
+      "H2_over_h_star": 0.8605509932723492,
+      "H0_over_h_star": 0.6666666666666665,
+      "H1_over_h_star": 0.6774193548387095,
+      "pi_min": 0.015625,
+      "pi_max": 0.015625,
+      "q_min": 1.0,
+      "q_max": 1.0,
+      "nonzeros_Q": 192,
+      "raw_qmax": 2.0,
+      "Lambda_used": 2.0,
+      "reference_spectrum_seconds": 1.1125000000000718e-05,
+      "certificate_computation_seconds": 5.43749999999954e-05,
+      "reference_root_seconds": 7.995799999999109e-05
+    },
+    {
+      "family": "cycle",
+      "n": 64,
+      "theta": 0.75,
+      "H0": 4.0,
+      "H1": 4.2,
+      "H2": 5.8336065463638,
+      "h_star": 10.000000000000275,
+      "H1_over_H0": 1.05,
+      "H2_over_H0": 1.45840163659095,
+      "H2_over_H1": 1.3889539396104285,
+      "H2_over_h_star": 0.583360654636364,
+      "H0_over_h_star": 0.399999999999989,
+      "H1_over_h_star": 0.41999999999998844,
+      "pi_min": 0.015625,
+      "pi_max": 0.015625,
+      "q_min": 1.0,
+      "q_max": 1.0,
+      "nonzeros_Q": 192,
+      "raw_qmax": 2.0,
+      "Lambda_used": 2.0,
+      "reference_spectrum_seconds": 1.1125000000000718e-05,
+      "certificate_computation_seconds": 4.6333999999981224e-05,
+      "reference_root_seconds": 6.533400000000023e-05
+    },
+    {
+      "family": "cycle",
+      "n": 256,
+      "theta": 0.5,
+      "H0": 2.0,
+      "H1": 2.0078740157480315,
+      "H2": 2.5664482218811093,
+      "h_star": 3.000000000000001,
+      "H1_over_H0": 1.0039370078740157,
+      "H2_over_H0": 1.2832241109405547,
+      "H2_over_H1": 1.2781918595251016,
+      "H2_over_h_star": 0.8554827406270362,
+      "H0_over_h_star": 0.6666666666666665,
+      "H1_over_h_star": 0.669291338582677,
+      "pi_min": 0.00390625,
+      "pi_max": 0.00390625,
+      "q_min": 1.0,
+      "q_max": 1.0,
+      "nonzeros_Q": 768,
+      "raw_qmax": 2.0,
+      "Lambda_used": 2.0,
+      "reference_spectrum_seconds": 1.4542000000006272e-05,
+      "certificate_computation_seconds": 8.57920000000012e-05,
+      "reference_root_seconds": 8.504199999997963e-05
+    },
+    {
+      "family": "cycle",
+      "n": 256,
+      "theta": 0.75,
+      "H0": 4.0,
+      "H1": 4.0476190476190474,
+      "H2": 5.667999731308326,
+      "h_star": 9.999999999999996,
+      "H1_over_H0": 1.0119047619047619,
+      "H2_over_H0": 1.4169999328270815,
+      "H2_over_H1": 1.4003293453820571,
+      "H2_over_h_star": 0.5667999731308327,
+      "H0_over_h_star": 0.40000000000000013,
+      "H1_over_h_star": 0.4047619047619049,
+      "pi_min": 0.00390625,
+      "pi_max": 0.00390625,
+      "q_min": 1.0,
+      "q_max": 1.0,
+      "nonzeros_Q": 768,
+      "raw_qmax": 2.0,
+      "Lambda_used": 2.0,
+      "reference_spectrum_seconds": 1.4542000000006272e-05,
+      "certificate_computation_seconds": 0.00011729199999999107,
+      "reference_root_seconds": 6.558400000000741e-05
+    },
+    {
+      "family": "cycle",
+      "n": 1024,
+      "theta": 0.5,
+      "H0": 2.0,
+      "H1": 2.0019569471624266,
+      "H2": 2.5627688196134577,
+      "h_star": 3.0000000000000004,
+      "H1_over_H0": 1.0009784735812133,
+      "H2_over_H0": 1.2813844098067289,
+      "H2_over_H1": 1.280131834626077,
+      "H2_over_h_star": 0.8542562732044858,
+      "H0_over_h_star": 0.6666666666666665,
+      "H1_over_h_star": 0.6673189823874754,
+      "pi_min": 0.0009765625,
+      "pi_max": 0.0009765625,
+      "q_min": 1.0,
+      "q_max": 1.0,
+      "nonzeros_Q": 3072,
+      "raw_qmax": 2.0,
+      "Lambda_used": 2.0,
+      "reference_spectrum_seconds": 3.833299999997375e-05,
+      "certificate_computation_seconds": 0.0002132920000000038,
+      "reference_root_seconds": 7.62910000000061e-05
+    },
+    {
+      "family": "cycle",
+      "n": 1024,
+      "theta": 0.75,
+      "H0": 4.0,
+      "H1": 4.011764705882353,
+      "H2": 5.6290605345387394,
+      "h_star": 9.999999999999995,
+      "H1_over_H0": 1.0029411764705882,
+      "H2_over_H0": 1.4072651336346849,
+      "H2_over_H1": 1.4031382564099497,
+      "H2_over_h_star": 0.5629060534538742,
+      "H0_over_h_star": 0.4000000000000002,
+      "H1_over_h_star": 0.4011764705882355,
+      "pi_min": 0.0009765625,
+      "pi_max": 0.0009765625,
+      "q_min": 1.0,
+      "q_max": 1.0,
+      "nonzeros_Q": 3072,
+      "raw_qmax": 2.0,
+      "Lambda_used": 2.0,
+      "reference_spectrum_seconds": 3.833299999997375e-05,
+      "certificate_computation_seconds": 0.00024333399999998395,
+      "reference_root_seconds": 7.67499999999588e-05
+    },
+    {
+      "family": "square_torus",
+      "n": 64,
+      "theta": 0.5,
+      "H0": 2.0,
+      "H1": 2.032258064516129,
+      "H2": 2.2287456982421117,
+      "h_star": 2.3528013073338063,
+      "H1_over_H0": 1.0161290322580645,
+      "H2_over_H0": 1.1143728491210558,
+      "H2_over_H1": 1.0966843911984994,
+      "H2_over_h_star": 0.9472732318258211,
+      "H0_over_h_star": 0.8500505307294305,
+      "H1_over_h_star": 0.8637610231605504,
+      "pi_min": 0.015625,
+      "pi_max": 0.015625,
+      "q_min": 1.0,
+      "q_max": 1.0,
+      "nonzeros_Q": 320,
+      "raw_qmax": 4.0,
+      "Lambda_used": 2.0,
+      "reference_spectrum_seconds": 1.3874999999996529e-05,
+      "certificate_computation_seconds": 4.63749999999874e-05,
+      "reference_root_seconds": 7.491699999995216e-05
+    },
+    {
+      "family": "square_torus",
+      "n": 64,
+      "theta": 0.75,
+      "H0": 4.0,
+      "H1": 4.2,
+      "H2": 4.74472034414816,
+      "h_star": 5.472142932259083,
+      "H1_over_H0": 1.05,
+      "H2_over_H0": 1.18618008603704,
+      "H2_over_H1": 1.1296953200352762,
+      "H2_over_h_star": 0.8670680577762944,
+      "H0_over_h_star": 0.7309750584948019,
+      "H1_over_h_star": 0.7675238114195421,
+      "pi_min": 0.015625,
+      "pi_max": 0.015625,
+      "q_min": 1.0,
+      "q_max": 1.0,
+      "nonzeros_Q": 320,
+      "raw_qmax": 4.0,
+      "Lambda_used": 2.0,
+      "reference_spectrum_seconds": 1.3874999999996529e-05,
+      "certificate_computation_seconds": 4.470800000000441e-05,
+      "reference_root_seconds": 7.087500000002578e-05
+    },
+    {
+      "family": "square_torus",
+      "n": 256,
+      "theta": 0.5,
+      "H0": 2.0,
+      "H1": 2.0078740157480315,
+      "H2": 2.212918919589784,
+      "h_star": 2.3527891347580194,
+      "H1_over_H0": 1.0039370078740157,
+      "H2_over_H0": 1.106459459794892,
+      "H2_over_H1": 1.102120403089814,
+      "H2_over_h_star": 0.9405513171146888,
+      "H0_over_h_star": 0.850054928618028,
+      "H1_over_h_star": 0.8534016015653431,
+      "pi_min": 0.00390625,
+      "pi_max": 0.00390625,
+      "q_min": 1.0,
+      "q_max": 1.0,
+      "nonzeros_Q": 1280,
+      "raw_qmax": 4.0,
+      "Lambda_used": 2.0,
+      "reference_spectrum_seconds": 1.8291999999975328e-05,
+      "certificate_computation_seconds": 9.145900000001594e-05,
+      "reference_root_seconds": 9.066699999998873e-05
+    },
+    {
+      "family": "square_torus",
+      "n": 256,
+      "theta": 0.75,
+      "H0": 4.0,
+      "H1": 4.0476190476190474,
+      "H2": 4.6023215274109175,
+      "h_star": 5.467626856172337,
+      "H1_over_H0": 1.0119047619047619,
+      "H2_over_H0": 1.1505803818527294,
+      "H2_over_H1": 1.1370441420662267,
+      "H2_over_h_star": 0.8417402373052238,
+      "H0_over_h_star": 0.7315788193344703,
+      "H1_over_h_star": 0.740288090993214,
+      "pi_min": 0.00390625,
+      "pi_max": 0.00390625,
+      "q_min": 1.0,
+      "q_max": 1.0,
+      "nonzeros_Q": 1280,
+      "raw_qmax": 4.0,
+      "Lambda_used": 2.0,
+      "reference_spectrum_seconds": 1.8291999999975328e-05,
+      "certificate_computation_seconds": 7.837499999996389e-05,
+      "reference_root_seconds": 7.666700000003024e-05
+    },
+    {
+      "family": "square_torus",
+      "n": 1024,
+      "theta": 0.5,
+      "H0": 2.0,
+      "H1": 2.0019569471624266,
+      "H2": 2.2090903252052305,
+      "h_star": 2.3527891347425127,
+      "H1_over_H0": 1.0009784735812133,
+      "H2_over_H0": 1.1045451626026153,
+      "H2_over_H1": 1.103465450811215,
+      "H2_over_h_star": 0.9389240593577425,
+      "H0_over_h_star": 0.8500549286236305,
+      "H1_over_h_star": 0.8508866849138689,
+      "pi_min": 0.0009765625,
+      "pi_max": 0.0009765625,
+      "q_min": 1.0,
+      "q_max": 1.0,
+      "nonzeros_Q": 5120,
+      "raw_qmax": 4.0,
+      "Lambda_used": 2.0,
+      "reference_spectrum_seconds": 3.7292000000022085e-05,
+      "certificate_computation_seconds": 0.0002114999999999756,
+      "reference_root_seconds": 8.566700000001148e-05
+    },
+    {
+      "family": "square_torus",
+      "n": 1024,
+      "theta": 0.75,
+      "H0": 4.0,
+      "H1": 4.011764705882353,
+      "H2": 4.568849495712649,
+      "h_star": 5.467625322254577,
+      "H1_over_H0": 1.0029411764705882,
+      "H2_over_H0": 1.1422123739281622,
+      "H2_over_H1": 1.1388627775236808,
+      "H2_over_h_star": 0.8356186143765759,
+      "H0_over_h_star": 0.7315790245756267,
+      "H1_over_h_star": 0.7337307275890844,
+      "pi_min": 0.0009765625,
+      "pi_max": 0.0009765625,
+      "q_min": 1.0,
+      "q_max": 1.0,
+      "nonzeros_Q": 5120,
+      "raw_qmax": 4.0,
+      "Lambda_used": 2.0,
+      "reference_spectrum_seconds": 3.7292000000022085e-05,
+      "certificate_computation_seconds": 0.00021420799999999351,
+      "reference_root_seconds": 9.587500000002303e-05
+    },
+    {
+      "family": "heterogeneous_ring",
+      "n": 64,
+      "theta": 0.5,
+      "H0": 2.0000000000000004,
+      "H1": 2.012673666534465,
+      "H2": 2.53508692012597,
+      "h_star": 2.9699958010258527,
+      "H1_over_H0": 1.0063368332672322,
+      "H2_over_H0": 1.2675434600629847,
+      "H2_over_H1": 1.2595618267769289,
+      "H2_over_h_star": 0.8535658263389925,
+      "H0_over_h_star": 0.6734016254532041,
+      "H1_over_h_star": 0.6776688592755843,
+      "pi_min": 0.00451935468640475,
+      "pi_max": 0.037961959340414485,
+      "q_min": 0.015317498347280887,
+      "q_max": 0.9999999999999998,
+      "nonzeros_Q": 192,
+      "raw_qmax": 16.166517683842837,
+      "Lambda_used": 1.9999999999999996,
+      "reference_spectrum_seconds": 0.000461542000000037,
+      "certificate_computation_seconds": 5.1374999999964643e-05,
+      "reference_root_seconds": 6.612500000002797e-05
+    },
+    {
+      "family": "heterogeneous_ring",
+      "n": 64,
+      "theta": 0.75,
+      "H0": 4.000000000000001,
+      "H1": 4.077018100935158,
+      "H2": 5.58975716741123,
+      "h_star": 9.775621743706203,
+      "H1_over_H0": 1.0192545252337892,
+      "H2_over_H0": 1.3974392918528074,
+      "H2_over_H1": 1.3710405568543076,
+      "H2_over_h_star": 0.5718057954738336,
+      "H0_over_h_star": 0.4091811349569969,
+      "H1_over_h_star": 0.41705972344521686,
+      "pi_min": 0.00451935468640475,
+      "pi_max": 0.037961959340414485,
+      "q_min": 0.015317498347280887,
+      "q_max": 0.9999999999999998,
+      "nonzeros_Q": 192,
+      "raw_qmax": 16.166517683842837,
+      "Lambda_used": 1.9999999999999996,
+      "reference_spectrum_seconds": 0.000461542000000037,
+      "certificate_computation_seconds": 4.512499999997921e-05,
+      "reference_root_seconds": 4.8874999999948265e-05
+    },
+    {
+      "family": "heterogeneous_ring",
+      "n": 256,
+      "theta": 0.5,
+      "H0": 2.0,
+      "H1": 2.0030727227032634,
+      "H2": 2.561037859552418,
+      "h_star": 2.997696037742233,
+      "H1_over_H0": 1.0015363613516317,
+      "H2_over_H0": 1.280518929776209,
+      "H2_over_H1": 1.278554607890695,
+      "H2_over_h_star": 0.8543354053606144,
+      "H0_over_h_star": 0.6671790517848284,
+      "H1_over_h_star": 0.6682040798946088,
+      "pi_min": 0.0011298386716011876,
+      "pi_max": 0.009490489835103623,
+      "q_min": 0.01590689718124922,
+      "q_max": 1.0,
+      "nonzeros_Q": 768,
+      "raw_qmax": 15.85858635255272,
+      "Lambda_used": 2.0,
+      "reference_spectrum_seconds": 0.005543041999999998,
+      "certificate_computation_seconds": 8.483399999992258e-05,
+      "reference_root_seconds": 0.00017674999999994778
+    },
+    {
+      "family": "heterogeneous_ring",
+      "n": 256,
+      "theta": 0.75,
+      "H0": 4.0,
+      "H1": 4.018493160573932,
+      "H2": 5.628617509808004,
+      "h_star": 9.976100578597421,
+      "H1_over_H0": 1.004623290143483,
+      "H2_over_H0": 1.407154377452001,
+      "H2_over_H1": 1.4006786337304875,
+      "H2_over_h_star": 0.5642101806675403,
+      "H0_over_h_star": 0.4009582670589289,
+      "H1_over_h_star": 0.4028120134629705,
+      "pi_min": 0.0011298386716011876,
+      "pi_max": 0.009490489835103623,
+      "q_min": 0.01590689718124922,
+      "q_max": 1.0,
+      "nonzeros_Q": 768,
+      "raw_qmax": 15.85858635255272,
+      "Lambda_used": 2.0,
+      "reference_spectrum_seconds": 0.005543041999999998,
+      "certificate_computation_seconds": 7.904199999997363e-05,
+      "reference_root_seconds": 0.00015091699999991715
+    },
+    {
+      "family": "heterogeneous_ring",
+      "n": 1024,
+      "theta": 0.5,
+      "H0": 2.0000000000000004,
+      "H1": 2.0007741055283668,
+      "H2": 2.5618825174018296,
+      "h_star": 2.9998571546721147,
+      "H1_over_H0": 1.0003870527641832,
+      "H2_over_H0": 1.2809412587009146,
+      "H2_over_H1": 1.2804456586693402,
+      "H2_over_h_star": 0.8540015025088233,
+      "H0_over_h_star": 0.6666984115844012,
+      "H1_over_h_star": 0.6669564590474816,
+      "pi_min": 0.00028233903977773226,
+      "pi_max": 0.002373636151366849,
+      "q_min": 0.016125863392949854,
+      "q_max": 0.9999999999999999,
+      "nonzeros_Q": 3072,
+      "raw_qmax": 15.749622529042814,
+      "Lambda_used": 1.9999999999999998,
+      "reference_spectrum_seconds": 0.20223749999999996,
+      "certificate_computation_seconds": 0.0002562499999999579,
+      "reference_root_seconds": 0.001773208000000026
+    },
+    {
+      "family": "heterogeneous_ring",
+      "n": 1024,
+      "theta": 0.75,
+      "H0": 4.000000000000001,
+      "H1": 4.004648231391817,
+      "H2": 5.620850419863194,
+      "h_star": 9.998488525592986,
+      "H1_over_H0": 1.001162057847954,
+      "H2_over_H0": 1.4052126049657983,
+      "H2_over_H1": 1.4035815619964365,
+      "H2_over_h_star": 0.5621700125449546,
+      "H0_over_h_star": 0.4000604681158816,
+      "H1_over_h_star": 0.40052536152251184,
+      "pi_min": 0.00028233903977773226,
+      "pi_max": 0.002373636151366849,
+      "q_min": 0.016125863392949854,
+      "q_max": 0.9999999999999999,
+      "nonzeros_Q": 3072,
+      "raw_qmax": 15.749622529042814,
+      "Lambda_used": 1.9999999999999998,
+      "reference_spectrum_seconds": 0.20223749999999996,
+      "certificate_computation_seconds": 0.0002211250000000442,
+      "reference_root_seconds": 0.0016317089999999812
+    }
+  ],
+  "validation": [
+    {
+      "family": "cycle",
+      "n": 64,
+      "theta": 0.5,
+      "method": "analytic Fourier eigenvalues",
+      "spectral_residual_max": 0.0,
+      "lambda_max_reference_only": 2.0,
+      "direct_checks": {
+        "H2": {
+          "step": 2.581652979817048,
+          "minimum_resolvent_gap": 0.028394449877288785,
+          "spectral_LU_diagonal_difference_max": 2.220446049250313e-16,
+          "linear_solve_residual_max": 4.440892098500626e-16
+        },
+        "below": {
+          "step": 2.9999970000000005,
+          "minimum_resolvent_gap": 1.8750010533086225e-07,
+          "spectral_LU_diagonal_difference_max": 1.1102230246251565e-16,
+          "linear_solve_residual_max": 2.220446049250313e-16
+        },
+        "above": {
+          "step": 3.0000030000000004,
+          "minimum_resolvent_gap": -1.8749989466604333e-07,
+          "spectral_LU_diagonal_difference_max": 1.6653345369377348e-16,
+          "linear_solve_residual_max": 2.220446049250313e-16
+        }
+      }
+    },
+    {
+      "family": "cycle",
+      "n": 64,
+      "theta": 0.75,
+      "method": "analytic Fourier eigenvalues",
+      "spectral_residual_max": 0.0,
+      "lambda_max_reference_only": 2.0,
+      "direct_checks": {
+        "H2": {
+          "step": 5.8336065463638,
+          "minimum_resolvent_gap": 0.07024957719186026,
+          "spectral_LU_diagonal_difference_max": 1.1102230246251565e-16,
+          "linear_solve_residual_max": 4.440892098500626e-16
+        },
+        "below": {
+          "step": 9.999990000000276,
+          "minimum_resolvent_gap": 1.1718758224921189e-07,
+          "spectral_LU_diagonal_difference_max": 5.551115123125783e-17,
+          "linear_solve_residual_max": 4.440892098500626e-16
+        },
+        "above": {
+          "step": 10.000010000000275,
+          "minimum_resolvent_gap": -1.1718741771415964e-07,
+          "spectral_LU_diagonal_difference_max": 1.1102230246251565e-16,
+          "linear_solve_residual_max": 4.440892098500626e-16
+        }
+      }
+    },
+    {
+      "family": "cycle",
+      "n": 256,
+      "theta": 0.5,
+      "method": "analytic Fourier eigenvalues",
+      "spectral_residual_max": 0.0,
+      "lambda_max_reference_only": 2.0,
+      "direct_checks": {
+        "H2": {
+          "step": 2.5664482218811093,
+          "minimum_resolvent_gap": 0.0295195979939622,
+          "spectral_LU_diagonal_difference_max": 1.1102230246251565e-16,
+          "linear_solve_residual_max": 2.220446049250313e-16
+        },
+        "below": {
+          "step": 2.999997000000001,
+          "minimum_resolvent_gap": 1.8750010544188456e-07,
+          "spectral_LU_diagonal_difference_max": 1.1102230246251565e-16,
+          "linear_solve_residual_max": 2.220446049250313e-16
+        },
+        "above": {
+          "step": 3.000003000000001,
+          "minimum_resolvent_gap": -1.8749989477706563e-07,
+          "spectral_LU_diagonal_difference_max": 1.6653345369377348e-16,
+          "linear_solve_residual_max": 2.220446049250313e-16
+        }
+      }
+    },
+    {
+      "family": "cycle",
+      "n": 256,
+      "theta": 0.75,
+      "method": "analytic Fourier eigenvalues",
+      "spectral_residual_max": 0.0,
+      "lambda_max_reference_only": 2.0,
+      "direct_checks": {
+        "H2": {
+          "step": 5.667999731308326,
+          "minimum_resolvent_gap": 0.07440870265491956,
+          "spectral_LU_diagonal_difference_max": 1.1102230246251565e-16,
+          "linear_solve_residual_max": 4.440892098500626e-16
+        },
+        "below": {
+          "step": 9.999989999999997,
+          "minimum_resolvent_gap": 1.1718758236023419e-07,
+          "spectral_LU_diagonal_difference_max": 1.1102230246251565e-16,
+          "linear_solve_residual_max": 6.661338147750939e-16
+        },
+        "above": {
+          "step": 10.000009999999996,
+          "minimum_resolvent_gap": -1.1718741763089291e-07,
+          "spectral_LU_diagonal_difference_max": 1.1102230246251565e-16,
+          "linear_solve_residual_max": 2.347095094835765e-16
+        }
+      }
+    },
+    {
+      "family": "cycle",
+      "n": 1024,
+      "theta": 0.5,
+      "method": "analytic Fourier eigenvalues",
+      "spectral_residual_max": 0.0,
+      "lambda_max_reference_only": 2.0,
+      "direct_checks": {
+        "H2": {
+          "step": 2.5627688196134577,
+          "minimum_resolvent_gap": 0.029792954608374056,
+          "spectral_LU_diagonal_difference_max": 1.1102230246251565e-16,
+          "linear_solve_residual_max": 2.220446049250313e-16
+        },
+        "below": {
+          "step": 2.9999970000000005,
+          "minimum_resolvent_gap": 1.8750010533086225e-07,
+          "spectral_LU_diagonal_difference_max": 1.1102230246251565e-16,
+          "linear_solve_residual_max": 2.220446049250313e-16
+        },
+        "above": {
+          "step": 3.0000030000000004,
+          "minimum_resolvent_gap": -1.8749989466604333e-07,
+          "spectral_LU_diagonal_difference_max": 1.1102230246251565e-16,
+          "linear_solve_residual_max": 2.220446049250313e-16
+        }
+      }
+    },
+    {
+      "family": "cycle",
+      "n": 1024,
+      "theta": 0.75,
+      "method": "analytic Fourier eigenvalues",
+      "spectral_residual_max": 0.0,
+      "lambda_max_reference_only": 2.0,
+      "direct_checks": {
+        "H2": {
+          "step": 5.6290605345387394,
+          "minimum_resolvent_gap": 0.07541039328191956,
+          "spectral_LU_diagonal_difference_max": 1.6653345369377348e-16,
+          "linear_solve_residual_max": 5.551115123125783e-16
+        },
+        "below": {
+          "step": 9.999989999999995,
+          "minimum_resolvent_gap": 1.1718758241574534e-07,
+          "spectral_LU_diagonal_difference_max": 1.1102230246251565e-16,
+          "linear_solve_residual_max": 4.440892098500626e-16
+        },
+        "above": {
+          "step": 10.000009999999994,
+          "minimum_resolvent_gap": -1.1718741760313733e-07,
+          "spectral_LU_diagonal_difference_max": 1.1102230246251565e-16,
+          "linear_solve_residual_max": 2.9200414834408497e-16
+        }
+      }
+    },
+    {
+      "family": "square_torus",
+      "n": 64,
+      "theta": 0.5,
+      "method": "analytic Fourier eigenvalues",
+      "spectral_residual_max": 0.0,
+      "lambda_max_reference_only": 2.0,
+      "direct_checks": {
+        "H2": {
+          "step": 2.2287456982421117,
+          "minimum_resolvent_gap": 0.01219270409108264,
+          "spectral_LU_diagonal_difference_max": 4.440892098500626e-16,
+          "linear_solve_residual_max": 8.881784197001252e-16
+        },
+        "below": {
+          "step": 2.3527989545324988,
+          "minimum_resolvent_gap": 2.2488805384579535e-07,
+          "spectral_LU_diagonal_difference_max": 4.440892098500626e-16,
+          "linear_solve_residual_max": 6.661338147750939e-16
+        },
+        "above": {
+          "step": 2.3528036601351134,
+          "minimum_resolvent_gap": -2.2488782080998249e-07,
+          "spectral_LU_diagonal_difference_max": 2.7755575615628914e-16,
+          "linear_solve_residual_max": 6.661338147750939e-16
+        }
+      }
+    },
+    {
+      "family": "square_torus",
+      "n": 64,
+      "theta": 0.75,
+      "method": "analytic Fourier eigenvalues",
+      "spectral_residual_max": 0.0,
+      "lambda_max_reference_only": 2.0,
+      "direct_checks": {
+        "H2": {
+          "step": 4.74472034414816,
+          "minimum_resolvent_gap": 0.02378753252512339,
+          "spectral_LU_diagonal_difference_max": 2.220446049250313e-16,
+          "linear_solve_residual_max": 8.881784197001252e-16
+        },
+        "below": {
+          "step": 5.4721374601161505,
+          "minimum_resolvent_gap": 1.614955960627107e-07,
+          "spectral_LU_diagonal_difference_max": 2.220446049250313e-16,
+          "linear_solve_residual_max": 8.881784197001252e-16
+        },
+        "above": {
+          "step": 5.472148404402015,
+          "minimum_resolvent_gap": -1.6149536039011814e-07,
+          "spectral_LU_diagonal_difference_max": 1.942890293094024e-16,
+          "linear_solve_residual_max": 7.771561172376096e-16
+        }
+      }
+    },
+    {
+      "family": "square_torus",
+      "n": 256,
+      "theta": 0.5,
+      "method": "analytic Fourier eigenvalues",
+      "spectral_residual_max": 0.0,
+      "lambda_max_reference_only": 2.0,
+      "direct_checks": {
+        "H2": {
+          "step": 2.212918919589784,
+          "minimum_resolvent_gap": 0.013797204704788402,
+          "spectral_LU_diagonal_difference_max": 5.551115123125783e-16,
+          "linear_solve_residual_max": 9.992007221626409e-16
+        },
+        "below": {
+          "step": 2.352786781968885,
+          "minimum_resolvent_gap": 2.248936190607509e-07,
+          "spectral_LU_diagonal_difference_max": 4.440892098500626e-16,
+          "linear_solve_residual_max": 1.1102230246251565e-15
+        },
+        "above": {
+          "step": 2.352791487547154,
+          "minimum_resolvent_gap": -2.2489338630249378e-07,
+          "spectral_LU_diagonal_difference_max": 4.996003610813204e-16,
+          "linear_solve_residual_max": 9.992007221626409e-16
+        }
+      }
+    },
+    {
+      "family": "square_torus",
+      "n": 256,
+      "theta": 0.75,
+      "method": "analytic Fourier eigenvalues",
+      "spectral_residual_max": 0.0,
+      "lambda_max_reference_only": 2.0,
+      "direct_checks": {
+        "H2": {
+          "step": 4.6023215274109175,
+          "minimum_resolvent_gap": 0.02898251289777165,
+          "spectral_LU_diagonal_difference_max": 2.7755575615628914e-16,
+          "linear_solve_residual_max": 1.1102230246251565e-15
+        },
+        "below": {
+          "step": 5.4676213885454805,
+          "minimum_resolvent_gap": 1.61939867793226e-07,
+          "spectral_LU_diagonal_difference_max": 2.7755575615628914e-16,
+          "linear_solve_residual_max": 1.1102230246251565e-15
+        },
+        "above": {
+          "step": 5.467632323799193,
+          "minimum_resolvent_gap": -1.6193963267574496e-07,
+          "spectral_LU_diagonal_difference_max": 3.3306690738754696e-16,
+          "linear_solve_residual_max": 1.3322676295501878e-15
+        }
+      }
+    },
+    {
+      "family": "square_torus",
+      "n": 1024,
+      "theta": 0.5,
+      "method": "analytic Fourier eigenvalues",
+      "spectral_residual_max": 0.0,
+      "lambda_max_reference_only": 2.0,
+      "direct_checks": {
+        "H2": {
+          "step": 2.2090903252052305,
+          "minimum_resolvent_gap": 0.014187314073667578,
+          "spectral_LU_diagonal_difference_max": 6.661338147750939e-16,
+          "linear_solve_residual_max": 1.2212453270876722e-15
+        },
+        "below": {
+          "step": 2.352786781953378,
+          "minimum_resolvent_gap": 2.248936188387063e-07,
+          "spectral_LU_diagonal_difference_max": 6.661338147750939e-16,
+          "linear_solve_residual_max": 1.5543122344752192e-15
+        },
+        "above": {
+          "step": 2.3527914875316474,
+          "minimum_resolvent_gap": -2.2489338619147148e-07,
+          "spectral_LU_diagonal_difference_max": 5.551115123125783e-16,
+          "linear_solve_residual_max": 1.1102230246251565e-15
+        }
+      }
+    },
+    {
+      "family": "square_torus",
+      "n": 1024,
+      "theta": 0.75,
+      "method": "analytic Fourier eigenvalues",
+      "spectral_residual_max": 0.0,
+      "lambda_max_reference_only": 2.0,
+      "direct_checks": {
+        "H2": {
+          "step": 4.568849495712649,
+          "minimum_resolvent_gap": 0.030257764550434274,
+          "spectral_LU_diagonal_difference_max": 4.440892098500626e-16,
+          "linear_solve_residual_max": 1.6653345369377348e-15
+        },
+        "below": {
+          "step": 5.4676198546292545,
+          "minimum_resolvent_gap": 1.6194017798953908e-07,
+          "spectral_LU_diagonal_difference_max": 3.885780586188048e-16,
+          "linear_solve_residual_max": 1.7763568394002505e-15
+        },
+        "above": {
+          "step": 5.467630789879898,
+          "minimum_resolvent_gap": -1.6193994323288052e-07,
+          "spectral_LU_diagonal_difference_max": 3.885780586188048e-16,
+          "linear_solve_residual_max": 1.6653345369377348e-15
+        }
+      }
+    },
+    {
+      "family": "heterogeneous_ring",
+      "n": 64,
+      "theta": 0.5,
+      "method": "complete symmetric eigendecomposition with exact stationary atom",
+      "spectral_residual_max": 1.3322676295501878e-15,
+      "stationary_vector_error_max": 1.3961054534661343e-14,
+      "spectral_mass_error_max": 4.6629367034256575e-15,
+      "lambda_max_reference_only": 1.7844278340284652,
+      "direct_checks": {
+        "H2": {
+          "step": 2.53508692012597,
+          "minimum_resolvent_gap": 0.03010162615794265,
+          "spectral_LU_diagonal_difference_max": 4.6629367034256575e-15,
+          "linear_solve_residual_max": 2.220446049250313e-16
+        },
+        "below": {
+          "step": 2.9699928310300514,
+          "minimum_resolvent_gap": 1.884944962338153e-07,
+          "spectral_LU_diagonal_difference_max": 4.3298697960381105e-15,
+          "linear_solve_residual_max": 3.3306690738754696e-16
+        },
+        "above": {
+          "step": 2.9699987710216535,
+          "minimum_resolvent_gap": -1.8849428690126402e-07,
+          "spectral_LU_diagonal_difference_max": 4.6629367034256575e-15,
+          "linear_solve_residual_max": 3.3306690738754696e-16
+        }
+      }
+    },
+    {
+      "family": "heterogeneous_ring",
+      "n": 64,
+      "theta": 0.75,
+      "method": "complete symmetric eigendecomposition with exact stationary atom",
+      "spectral_residual_max": 1.3322676295501878e-15,
+      "stationary_vector_error_max": 1.3961054534661343e-14,
+      "spectral_mass_error_max": 4.6629367034256575e-15,
+      "lambda_max_reference_only": 1.7844278340284652,
+      "direct_checks": {
+        "H2": {
+          "step": 5.58975716741123,
+          "minimum_resolvent_gap": 0.0739335667655795,
+          "spectral_LU_diagonal_difference_max": 4.3298697960381105e-15,
+          "linear_solve_residual_max": 3.3306690738754696e-16
+        },
+        "below": {
+          "step": 9.77561196808446,
+          "minimum_resolvent_gap": 1.1846967512552098e-07,
+          "spectral_LU_diagonal_difference_max": 4.551914400963142e-15,
+          "linear_solve_residual_max": 3.3306690738754696e-16
+        },
+        "above": {
+          "step": 9.775631519327947,
+          "minimum_resolvent_gap": -1.1846951075700218e-07,
+          "spectral_LU_diagonal_difference_max": 4.3298697960381105e-15,
+          "linear_solve_residual_max": 4.440892098500626e-16
+        }
+      }
+    },
+    {
+      "family": "heterogeneous_ring",
+      "n": 256,
+      "theta": 0.5,
+      "method": "complete symmetric eigendecomposition with exact stationary atom",
+      "spectral_residual_max": 1.6653345369377348e-15,
+      "stationary_vector_error_max": 1.0884348977668878e-13,
+      "spectral_mass_error_max": 2.1538326677728037e-14,
+      "lambda_max_reference_only": 1.9404748681750235,
+      "direct_checks": {
+        "H2": {
+          "step": 2.561037859552418,
+          "minimum_resolvent_gap": 0.029789169615673017,
+          "spectral_LU_diagonal_difference_max": 2.1538326677728037e-14,
+          "linear_solve_residual_max": 3.3306690738754696e-16
+        },
+        "below": {
+          "step": 2.997693040046195,
+          "minimum_resolvent_gap": 1.8759154796210709e-07,
+          "spectral_LU_diagonal_difference_max": 2.19824158875781e-14,
+          "linear_solve_residual_max": 3.3306690738754696e-16
+        },
+        "above": {
+          "step": 2.9976990354382704,
+          "minimum_resolvent_gap": -1.875913476223623e-07,
+          "spectral_LU_diagonal_difference_max": 2.1538326677728037e-14,
+          "linear_solve_residual_max": 3.3306690738754696e-16
+        }
+      }
+    },
+    {
+      "family": "heterogeneous_ring",
+      "n": 256,
+      "theta": 0.75,
+      "method": "complete symmetric eigendecomposition with exact stationary atom",
+      "spectral_residual_max": 1.6653345369377348e-15,
+      "stationary_vector_error_max": 1.0884348977668878e-13,
+      "spectral_mass_error_max": 2.1538326677728037e-14,
+      "lambda_max_reference_only": 1.9404748681750235,
+      "direct_checks": {
+        "H2": {
+          "step": 5.628617509808004,
+          "minimum_resolvent_gap": 0.07519677768403715,
+          "spectral_LU_diagonal_difference_max": 2.1316282072803006e-14,
+          "linear_solve_residual_max": 3.3306690738754696e-16
+        },
+        "below": {
+          "step": 9.976090602496843,
+          "minimum_resolvent_gap": 1.1740924343861536e-07,
+          "spectral_LU_diagonal_difference_max": 2.142730437526552e-14,
+          "linear_solve_residual_max": 3.3306690738754696e-16
+        },
+        "above": {
+          "step": 9.976110554698,
+          "minimum_resolvent_gap": -1.1740908814616979e-07,
+          "spectral_LU_diagonal_difference_max": 2.1538326677728037e-14,
+          "linear_solve_residual_max": 4.440892098500626e-16
+        }
+      }
+    },
+    {
+      "family": "heterogeneous_ring",
+      "n": 1024,
+      "theta": 0.5,
+      "method": "complete symmetric eigendecomposition with exact stationary atom",
+      "spectral_residual_max": 1.2189685025254526e-15,
+      "stationary_vector_error_max": 1.0134948436046898e-13,
+      "spectral_mass_error_max": 1.0547118733938987e-14,
+      "lambda_max_reference_only": 1.9845043313073372,
+      "direct_checks": {
+        "H2": {
+          "step": 2.5618825174018296,
+          "minimum_resolvent_gap": 0.02985065327952663,
+          "spectral_LU_diagonal_difference_max": 1.0880185641326534e-14,
+          "linear_solve_residual_max": 3.3306690738754696e-16
+        },
+        "below": {
+          "step": 2.99985415481496,
+          "minimum_resolvent_gap": 1.8750578201220947e-07,
+          "spectral_LU_diagonal_difference_max": 9.547918011776346e-15,
+          "linear_solve_residual_max": 3.3306690738754696e-16
+        },
+        "above": {
+          "step": 2.999860154529269,
+          "minimum_resolvent_gap": -1.875055692379668e-07,
+          "spectral_LU_diagonal_difference_max": 9.769962616701378e-15,
+          "linear_solve_residual_max": 3.3306690738754696e-16
+        }
+      }
+    },
+    {
+      "family": "heterogeneous_ring",
+      "n": 1024,
+      "theta": 0.75,
+      "method": "complete symmetric eigendecomposition with exact stationary atom",
+      "spectral_residual_max": 1.2189685025254526e-15,
+      "stationary_vector_error_max": 1.0134948436046898e-13,
+      "spectral_mass_error_max": 1.0547118733938987e-14,
+      "lambda_max_reference_only": 1.9845043313073372,
+      "direct_checks": {
+        "H2": {
+          "step": 5.620850419863194,
+          "minimum_resolvent_gap": 0.07560875669430422,
+          "spectral_LU_diagonal_difference_max": 9.769962616701378e-15,
+          "linear_solve_residual_max": 3.3306690738754696e-16
+        },
+        "below": {
+          "step": 9.99847852710446,
+          "minimum_resolvent_gap": 1.1720208908938545e-07,
+          "spectral_LU_diagonal_difference_max": 9.2148511043888e-15,
+          "linear_solve_residual_max": 4.440892098500626e-16
+        },
+        "above": {
+          "step": 9.99849852408151,
+          "minimum_resolvent_gap": -1.172019219453091e-07,
+          "spectral_LU_diagonal_difference_max": 9.658940314238862e-15,
+          "linear_solve_residual_max": 3.3306690738754696e-16
+        }
+      }
+    }
+  ],
+  "interpretation": "h_star is a floating-point numerical reference, not a certified interval or a symbolic exact value. Timings are single-run diagnostics, not performance comparisons."
+}
